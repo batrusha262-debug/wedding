@@ -4,8 +4,8 @@
  */
 export const site = {
   brand: {
-    title: "BOMA",
-    subtitle: "сайты-пригласительные",
+    title: "",
+    subtitle: "",
   },
   hero: {
     title: "Тили-Тили Тесто!",
@@ -27,20 +27,20 @@ export const site = {
   invite: {
     lead: "Поэтому мы приглашаем вас...",
     monthYear: "Июль 2026",
-    highlightDay: 19,
+    highlightDay: 25,
     days: [
-      { label: "четверг", date: 18 },
-      { label: "пятница", date: 19 },
-      { label: "суббота", date: 20 },
+      { label: "четверг", date: 24 },
+      { label: "пятница", date: 25 },
+      { label: "суббота", date: 26 },
     ],
   },
   location: {
     title: "Локация",
-    venue: "Усадьба Богдановичей",
-    photo: "/images/placeholder.svg",
+    venue: "Малина",
+    photo: "/images/malina.jpg",
     /** false — цветное фото усадьбы */
-    photoGrayscale: true,
-    mapUrl: "https://maps.google.com",
+    photoGrayscale: false,
+    mapUrl: "https://yandex.kz/maps/org/malina/154555901189/?ll=20.438092%2C54.950211&z=14",
     mapLabel: "Карта",
   },
   schedule: {
@@ -49,7 +49,17 @@ export const site = {
       { time: "15:30", text: "Сбор гостей, фуршет", icon: "drink" as const },
       { time: "16:00", text: "Церемония", icon: "rings" as const },
       { time: "17:00", text: "Банкет", icon: "plate" as const },
-      { time: "23:00", text: "Торт", icon: "champagne" as const },
+      { time: "23:00", text: "Афтерпарти", icon: "drink" as const },
+    ],
+  },
+  dresscode: {
+    title: "Дресс-код",
+    description: "Дорогие гости, предлагаем вам одеться в светлые пастельные тона — это будет прекрасно гармонировать с нашим праздником и обеспечит вам комфорт в тёплый летний день!",
+    recommendations: [
+      "Светлые пастельные оттенки: бежевый, кремовый, светло-розовый, светло-голубой, светлый лавандовый",
+      "Избегайте чёрного цвета — будет жарко, а светлые ткани гораздо комфортнее",
+      "Откажитесь от очень ярких, неоновых цветов",
+      "Лёгкие, воздухопроницаемые ткани приветствуются",
     ],
   },
 } as const;

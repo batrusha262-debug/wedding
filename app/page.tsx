@@ -17,9 +17,9 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-cream px-5 pb-10 pt-8">
+      <section className="relative overflow-hidden bg-gradient-to-b from-cream via-cream to-cream/95 px-5 pb-10 pt-12">
         <HeartField />
-        <h1 className="font-script relative text-center text-4xl text-burgundy md:text-5xl">
+        <h1 className="font-script relative text-center text-5xl text-burgundy drop-shadow-sm md:text-6xl font-bold">
           {site.hero.title}
         </h1>
 
@@ -34,9 +34,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-6 max-w-xs">
-          <div className="rounded-sm bg-burgundy px-6 py-3 text-center shadow-md">
-            <p className="font-script text-2xl text-white">{site.hero.ribbon}</p>
+        <div className="relative z-10 mx-auto mt-8 max-w-xs">
+          <div className="rounded-lg bg-gradient-to-r from-burgundy to-burgundy/90 px-8 py-4 text-center shadow-lg backdrop-blur-sm">
+            <p className="font-script text-3xl text-white tracking-wide font-semibold">{site.hero.ribbon}</p>
           </div>
         </div>
 
@@ -50,8 +50,8 @@ export default function Home() {
       <TornEdge fill="#800020" />
 
       {/* Couple polaroids */}
-      <section className="relative bg-burgundy px-5 py-12">
-        <div className="flex flex-wrap items-center justify-center gap-4">
+      <section className="relative bg-gradient-to-b from-burgundy via-burgundy to-burgundy/95 px-5 py-16">
+        <div className="flex flex-wrap items-center justify-center gap-6">
           <PhotoCard
             src={site.couple.photoLeft}
             alt="Пара"
@@ -65,7 +65,7 @@ export default function Home() {
             rotate={4}
           />
         </div>
-        <p className="font-script mt-10 text-center text-3xl text-white">{site.couple.line}</p>
+        <p className="font-script mt-12 text-center text-4xl text-white drop-shadow-sm font-bold">{site.couple.line}</p>
         <div className="mt-4 flex justify-center gap-3 text-white/90">
           <Heart className="text-white" size={22} />
           <Heart className="text-white" size={18} />
@@ -96,7 +96,7 @@ export default function Home() {
                     <span className="absolute inset-0 text-burgundy" aria-hidden>
                       <svg viewBox="0 0 48 48" className="h-full w-full">
                         <path
-                          d="M24 6c-4 8-14 12-14 22 0 8 6 14 14 14s14-6 14-14c0-10-10-14-14-22z"
+                          d="M24 4c-4 8-14 12-14 22 0 8 6 14 14 14s14-6 14-14c0-10-10-14-14-22z"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1.5"
@@ -116,9 +116,9 @@ export default function Home() {
       <TornEdge fill="#800020" />
 
       {/* Location */}
-      <section className="bg-burgundy px-5 py-12 text-center text-white">
-        <h2 className="font-script text-4xl">{site.location.title}</h2>
-        <p className="mt-4 text-lg font-medium">{site.location.venue}</p>
+      <section className="bg-gradient-to-b from-burgundy via-burgundy to-burgundy/95 px-5 py-16 text-center text-white">
+        <h2 className="font-script text-5xl drop-shadow-sm font-bold">{site.location.title}</h2>
+        <p className="mt-6 text-xl font-medium tracking-wide">{site.location.venue}</p>
         <div className="mx-auto mt-8 max-w-[280px]">
           <PhotoCard
             src={site.location.photo}
@@ -132,7 +132,7 @@ export default function Home() {
           href={site.location.mapUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-block min-w-[200px] rounded border-2 border-white bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wider text-burgundy transition hover:bg-burgundy hover:text-white"
+          className="mt-12 inline-block min-w-[220px] rounded-lg border-2 border-white bg-white px-10 py-4 text-sm font-bold uppercase tracking-wider text-burgundy transition-all duration-300 hover:bg-burgundy hover:text-white hover:shadow-lg hover:scale-105"
         >
           {site.location.mapLabel}
         </Link>
@@ -140,9 +140,31 @@ export default function Home() {
 
       <TornEdge fill="#f9f4ee" flip />
 
+      {/* Dress Code */}
+      <section className="bg-gradient-to-b from-cream via-cream to-cream/95 px-5 py-16 text-center text-navy">
+        <Heart className="mx-auto text-burgundy" size={32} />
+        <h2 className="font-script mt-8 text-5xl text-burgundy drop-shadow-sm font-bold">{site.dresscode.title}</h2>
+        <div className="mx-auto mt-3 h-1 w-28 rounded-full bg-burgundy/35" />
+
+        <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-navy/85">{site.dresscode.description}</p>
+
+        <div className="mx-auto mt-10 max-w-md space-y-4">
+          {site.dresscode.recommendations.map((rec, idx) => (
+            <div key={idx} className="flex items-start gap-4 rounded-lg bg-white/60 p-3 text-left transition-all hover:bg-white/100 hover:shadow-md">
+              <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-burgundy/20 text-xs font-bold text-burgundy">
+                ✓
+              </span>
+              <p className="text-sm text-navy/85 leading-relaxed">{rec}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <TornEdge fill="#800020" />
+
       {/* Schedule */}
-      <section className="relative bg-cream px-5 pb-16 pt-12">
-        <h2 className="font-script text-center text-4xl text-burgundy">{site.schedule.title}</h2>
+      <section className="relative bg-gradient-to-b from-cream via-cream to-cream/95 px-5 pb-16 pt-16">
+        <h2 className="font-script text-center text-5xl text-burgundy drop-shadow-sm font-bold">{site.schedule.title}</h2>
         <div className="mx-auto mt-3 h-1 w-28 rounded-full bg-burgundy/35" />
 
         <div className="relative mx-auto mt-10 max-w-md pl-2">

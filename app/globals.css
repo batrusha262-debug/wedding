@@ -4,6 +4,8 @@
   --color-cream: #f9f4ee;
   --color-burgundy: #800020;
   --color-navy: #212b36;
+  --color-rose: #d4a5a5;
+  --color-soft-peach: #f5ddd0;
 }
 
 body {
@@ -13,4 +15,21 @@ body {
 
 .font-script {
   font-family: var(--font-caveat), cursive;
+  letter-spacing: 0.02em;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Enhanced hover states */
+a:not(.no-hover) {
+  @apply hover:opacity-90;
+}
+
+/* Better spacing for readability */
+section {
+  @apply scroll-smooth;
 }
