@@ -4,6 +4,7 @@ import { TornEdge } from "@/components/TornEdge";
 import { PhotoCard, StoryPhotoCard } from "@/components/PhotoCard";
 import { ScheduleIcon } from "@/components/ScheduleIcons";
 import { Heart, HeartField } from "@/components/Hearts";
+import { RsvpForm } from "@/components/RsvpForm";
 
 export default function Home() {
   const { invite } = site;
@@ -48,32 +49,6 @@ export default function Home() {
       </section>
 
       <TornEdge fill="#800020" />
-
-      {/* Couple polaroids */}
-      <section className="relative bg-gradient-to-b from-burgundy via-burgundy to-burgundy/95 px-5 py-16">
-        <div className="flex flex-wrap items-center justify-center gap-6">
-          <PhotoCard
-            src={site.couple.photoLeft}
-            alt="Пара"
-            polaroid
-            rotate={-3}
-          />
-          <PhotoCard
-            src={site.couple.photoRight}
-            alt="Пара"
-            polaroid
-            rotate={4}
-          />
-        </div>
-        <p className="font-script mt-12 text-center text-4xl text-white drop-shadow-sm font-bold">{site.couple.line}</p>
-        <div className="mt-4 flex justify-center gap-3 text-white/90">
-          <Heart className="text-white" size={22} />
-          <Heart className="text-white" size={18} />
-          <Heart className="text-white" size={22} />
-        </div>
-      </section>
-
-      <TornEdge fill="#f9f4ee" flip />
 
       {/* Invite + calendar */}
       <section className="bg-cream px-5 py-12 text-center text-navy">
@@ -195,6 +170,16 @@ export default function Home() {
             <Heart className="text-burgundy" size={22} />
           </div>
         </div>
+      </section>
+
+      <TornEdge fill="#f9f4ee" />
+
+      {/* RSVP */}
+      <section className="bg-gradient-to-b from-cream via-cream to-cream/95 px-5 pb-16 pt-14 text-center text-navy">
+        <Heart className="mx-auto text-burgundy" size={30} />
+        <h2 className="font-script mt-6 text-5xl text-burgundy drop-shadow-sm font-bold">{site.rsvp.title}</h2>
+        <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-navy/85">{site.rsvp.description}</p>
+        <RsvpForm />
       </section>
     </main>
   );

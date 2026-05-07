@@ -27,7 +27,7 @@ export function PhotoCard({
 
   return (
     <figure
-      className={`relative mx-auto max-w-[min(100%,280px)] ${frame} ${className}`}
+      className={`relative mx-auto w-[min(100%,280px)] ${frame} ${className}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-white/80">
@@ -55,7 +55,7 @@ export function StoryPhotoCard({
   const isSvg = src.endsWith(".svg");
   return (
     <figure
-      className={`relative mx-auto max-w-[min(100%,240px)] border-4 border-white shadow-md ${className}`}
+      className={`relative mx-auto w-[min(42vw,240px)] border-4 border-white shadow-md ${className}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream">

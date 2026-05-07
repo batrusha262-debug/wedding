@@ -16,8 +16,8 @@ export const site = {
     groomLabel: "жених",
     brideLabel: "невеста",
     /** Замените на свои файлы в `public/images/` */
-    groomPhoto: "/images/placeholder.svg",
-    bridePhoto: "/images/placeholder.svg",
+    groomPhoto: "/images/groom-child.png",
+    bridePhoto: "/images/bride-child.png",
   },
   couple: {
     line: "Андрей + Алина =",
@@ -61,5 +61,9 @@ export const site = {
       "Откажитесь от очень ярких, неоновых цветов",
       "Лёгкие, воздухопроницаемые ткани приветствуются",
     ],
+  },
+  rsvp: {
+    title: "Вы с нами?",
+    description: "Заполните, пожалуйста, имя и укажите, с чьей стороны вы приглашены.",
   },
 } as const;
