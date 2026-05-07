@@ -12,7 +12,7 @@ export const site = {
     ribbon: "мы женимся!",
     storyTitle: "Узнали?",
     story:
-      "Эти малыши выросли — и теперь решили пожениться. Будем рады разделить с вами этот день.",
+      "Эти малыши выросли — и теперь решили пожениться. Будем рады разделить с Вами этот день!",
     groomLabel: "жених",
     brideLabel: "невеста",
     /** Замените на свои файлы в `public/images/` */
@@ -29,14 +29,17 @@ export const site = {
     monthYear: "Июль 2026",
     highlightDay: 25,
     days: [
-      { label: "четверг", date: 24 },
-      { label: "пятница", date: 25 },
-      { label: "суббота", date: 26 },
+      { label: "пятница", date: 24 },
+      { label: "суббота", date: 25 },
+      { label: "воскресенье", date: 26 },
     ],
   },
   location: {
     title: "Локация",
     venue: "Малина",
+    address: "Улица Берлинская 43, Зеленоградск",
+    glamping: "Малина Глэмпинг",
+    mapHint: "Нажмите на карту, чтобы увидеть местоположение",
     photo: "/images/malina.jpg",
     /** false — цветное фото усадьбы */
     photoGrayscale: false,
@@ -49,7 +52,7 @@ export const site = {
       { time: "15:30", text: "Сбор гостей, фуршет", icon: "drink" as const },
       { time: "16:00", text: "Церемония", icon: "rings" as const },
       { time: "17:00", text: "Банкет", icon: "plate" as const },
-      { time: "23:00", text: "Афтерпарти", icon: "drink" as const },
+      { time: "23:00", text: "Afterparty", icon: "disco" as const },
     ],
   },
   dresscode: {

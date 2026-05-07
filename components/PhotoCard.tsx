@@ -9,6 +9,7 @@ type PhotoCardProps = {
   polaroid?: boolean;
   /** Ч/б (как на макете для «полароидов») */
   grayscale?: boolean;
+  caption?: string;
   className?: string;
 };
 
@@ -18,6 +19,7 @@ export function PhotoCard({
   rotate = 0,
   polaroid,
   grayscale = true,
+  caption,
   className = "",
 }: PhotoCardProps) {
   const isSvg = src.endsWith(".svg");
@@ -41,6 +43,7 @@ export function PhotoCard({
           unoptimized={isSvg}
         />
       </div>
+      {caption && <figcaption className="pt-1 text-center font-script text-3xl leading-none text-burgundy">{caption}</figcaption>}
     </figure>
   );
 }
