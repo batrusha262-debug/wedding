@@ -18,7 +18,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_20%_15%,rgba(91,126,95,0.08),transparent_24%),linear-gradient(to_bottom,#fbe9ee,#fbe9ee_70%,rgba(251,233,238,0.95))] px-5 pb-10 pt-12">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_20%_15%,rgba(128,0,32,0.08),transparent_24%),linear-gradient(to_bottom,#f9f4ee,#f9f4ee_70%,rgba(249,244,238,0.95))] px-5 pb-10 pt-12">
         <HeartField />
         <h1 className="font-script relative text-center text-5xl text-burgundy drop-shadow-sm md:text-6xl font-bold">
           {site.hero.title}
@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </section>
 
-      <TornEdge fill="#5b7e5f" />
+      <TornEdge fill="#800020" />
 
       {/* Invite + calendar */}
       <section className="relative overflow-hidden bg-cream px-5 py-12 text-center text-navy">
@@ -100,10 +100,10 @@ export default function Home() {
         </div>
       </section>
 
-      <TornEdge fill="#5b7e5f" />
+      <TornEdge fill="#800020" />
 
       {/* Location */}
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.16),transparent_28%),linear-gradient(to_bottom,#5b7e5f,#5b7e5f_76%,rgba(91,126,95,0.95))] px-5 py-16 text-center text-white">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.16),transparent_28%),linear-gradient(to_bottom,#800020,#800020_76%,rgba(128,0,32,0.95))] px-5 py-16 text-center text-white">
         <HeartField className="opacity-50" color="text-white/55" />
         <h2 className="relative z-10 font-script text-5xl drop-shadow-sm font-bold">{site.location.title}</h2>
         <svg className="relative z-10 mx-auto mt-2 h-5 w-44 text-white/85" viewBox="0 0 180 24" fill="none" aria-hidden>
@@ -145,10 +145,10 @@ export default function Home() {
         </Link>
       </section>
 
-      <TornEdge fill="#fbe9ee" flip />
+      <TornEdge fill="#f9f4ee" flip />
 
       {/* Dress Code */}
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_15%_30%,rgba(231,184,198,0.25),transparent_25%),linear-gradient(to_bottom,#fbe9ee,#fbe9ee_78%,rgba(251,233,238,0.95))] px-5 py-16 text-center text-navy">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_15%_30%,rgba(212,165,165,0.25),transparent_25%),linear-gradient(to_bottom,#f9f4ee,#f9f4ee_78%,rgba(249,244,238,0.95))] px-5 py-16 text-center text-navy">
         <HeartField className="opacity-50" color="text-burgundy/45" />
         <Heart className="relative z-10 mx-auto text-burgundy" size={36} />
         <h2 className="relative z-10 font-script mt-8 text-5xl text-burgundy drop-shadow-sm font-bold">{site.dresscode.title}</h2>
@@ -168,10 +168,10 @@ export default function Home() {
         </div>
       </section>
 
-      <TornEdge fill="#5b7e5f" />
+      <TornEdge fill="#800020" />
 
       {/* Schedule */}
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_85%_20%,rgba(91,126,95,0.08),transparent_24%),linear-gradient(to_bottom,#fbe9ee,#fbe9ee_72%,rgba(251,233,238,0.95))] px-5 pb-16 pt-16">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_85%_20%,rgba(128,0,32,0.08),transparent_24%),linear-gradient(to_bottom,#f9f4ee,#f9f4ee_72%,rgba(249,244,238,0.95))] px-5 pb-16 pt-16">
         <HeartField className="opacity-45" color="text-burgundy/45" />
         <h2 className="relative z-10 font-script text-center text-5xl text-burgundy drop-shadow-sm font-bold">{site.schedule.title}</h2>
         <div className="relative z-10 mx-auto mt-3 h-1 w-28 rounded-full bg-burgundy/35" />
@@ -206,10 +206,10 @@ export default function Home() {
         </div>
       </section>
 
-      <TornEdge fill="#fbe9ee" />
+      <TornEdge fill="#f9f4ee" />
 
       {/* RSVP */}
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(91,126,95,0.08),transparent_24%),linear-gradient(to_bottom,#fbe9ee,#fbe9ee_72%,rgba(251,233,238,0.95))] px-5 pb-16 pt-14 text-center text-navy">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(128,0,32,0.08),transparent_24%),linear-gradient(to_bottom,#f9f4ee,#f9f4ee_72%,rgba(249,244,238,0.95))] px-5 pb-16 pt-14 text-center text-navy">
         <HeartField className="opacity-55" color="text-burgundy/45" />
         <Heart className="relative z-10 mx-auto text-burgundy" size={34} />
         <h2 className="relative z-10 font-script mt-6 text-5xl text-burgundy drop-shadow-sm font-bold">{site.rsvp.title}</h2>
