@@ -40,7 +40,7 @@ export const site = {
     address: "Верхнеозёрная 2А/5",
     glamping: "Малина Глэмпинг",
     mapHint: "Нажмите на карту, чтобы увидеть местоположение",
-    photo: "/images/malina.jpg",
+    photo: "/images/malina.png",
     /** false — цветное фото усадьбы */
     photoGrayscale: false,
     mapUrl: "https://yandex.ru/maps/org/dushevny_sad/69171284239/?ll=20.519820%2C54.729871&mode=search&sll=20.519820%2C54.729871&sspn=0.011984%2C0.005408&text=%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D1%8B%D0%B9%20%D1%81%D0%B0%D0%B4&z=17",
