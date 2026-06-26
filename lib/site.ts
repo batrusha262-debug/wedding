@@ -36,9 +36,9 @@ export const site = {
   },
   location: {
     title: "Локация",
-    venue: "Малина",
+    venue: "Душевный Сад",
     address: "Верхнеозёрная 2А/5",
-    glamping: "Малина Глэмпинг",
+    glamping: "Душевный Сад",
     mapHint: "Нажмите на карту, чтобы увидеть местоположение",
     photo: "/images/malina.png",
     /** false — цветное фото усадьбы */
