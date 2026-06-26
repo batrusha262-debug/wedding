@@ -123,7 +123,8 @@ export default function Home() {
             opacity="0.45"
           />
         </svg>
-        <p className="relative z-10 mx-auto mt-6 max-w-xs text-sm leading-relaxed text-white/90">{site.location.address}</p>
+        <p className="relative z-10 mx-auto mt-6 max-w-xs text-sm leading-relaxed text-white/80">{site.location.address}</p>
+        <p className="relative z-10 mx-auto mt-1 max-w-xs text-xl font-bold leading-snug tracking-wide text-white drop-shadow-sm">{site.location.street}</p>
         <div className="relative z-10 mx-auto mt-8 max-w-[280px]">
           <PhotoCard
             src={site.location.photo}

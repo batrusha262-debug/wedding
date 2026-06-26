@@ -4,11 +4,18 @@ import { FormEvent, useState } from "react";
 
 type GuestSide = "groom" | "bride" | "";
 type BinaryAnswer = "yes" | "no" | "";
+type HotMeal = "meat" | "poultry" | "fish";
 
 type Notice = {
   type: "error" | "success";
   message: string;
 };
+
+const hotMealOptions: { value: HotMeal; label: string }[] = [
+  { value: "meat", label: "Мясо" },
+  { value: "poultry", label: "Птица" },
+  { value: "fish", label: "Рыба" },
+];
 
 export function RsvpForm() {
   const [name, setName] = useState("");
@@ -16,7 +23,9 @@ export function RsvpForm() {
   const [withChildren, setWithChildren] = useState<BinaryAnswer>("");
   const [childrenCount, setChildrenCount] = useState("");
   const [childrenNames, setChildrenNames] = useState("");
-  const [withPlusOne, setWithPlusOne] = useState<BinaryAnswer>("");
+  const [withPlusOne, setWithPlusOne] = useState(false);
+  const [plusOneName, setPlusOneName] = useState("");
+  const [hotMeal, setHotMeal] = useState<HotMeal[]>([]);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,13 +39,30 @@ export function RsvpForm() {
 
     const trimmedName = name.trim();
     const trimmedChildrenNames = childrenNames.trim();
+    const trimmedPlusOneName = plusOneName.trim();
     const normalizedChildrenCount =
       withChildren === "yes" ? Number.parseInt(childrenCount, 10) : 0;
 
-    if (!trimmedName || !side || !withChildren || !withPlusOne) {
+    if (!trimmedName || !side || !withChildren) {
       showNotice({
         type: "error",
         message: "Заполните имя и все обязательные поля",
+      });
+      return;
+    }
+
+    if (hotMeal.length < 1) {
+      showNotice({
+        type: "error",
+        message: "Выберите предпочтения по горячему",
+      });
+      return;
+    }
+
+    if (withPlusOne && !trimmedPlusOneName) {
+      showNotice({
+        type: "error",
+        message: "Укажите имя второй половинки",
       });
       return;
     }
@@ -70,7 +96,9 @@ export function RsvpForm() {
           withChildren,
           childrenCount: normalizedChildrenCount,
           childrenNames: withChildren === "yes" ? trimmedChildrenNames : "",
-          withPlusOne,
+          withPlusOne: withPlusOne ? "yes" : "no",
+          plusOneName: withPlusOne ? trimmedPlusOneName : "",
+          hotMeal,
         }),
       });
 
@@ -83,7 +111,9 @@ export function RsvpForm() {
       setWithChildren("");
       setChildrenCount("");
       setChildrenNames("");
-      setWithPlusOne("");
+      setWithPlusOne(false);
+      setPlusOneName("");
+      setHotMeal([]);
       showNotice({
         type: "success",
         message: "Соглашение отправлено",
@@ -206,32 +236,93 @@ export function RsvpForm() {
       </fieldset>
 
       <fieldset className="mt-6">
-        <legend className="text-sm font-semibold text-navy">Вы придете один/одна или с парой?</legend>
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          {[
-            { value: "no" as const, label: "Приду один/одна" },
-            { value: "yes" as const, label: "Приду с парой" },
-          ].map((option) => (
-            <label
-              key={option.value}
-              className={`flex min-h-12 cursor-pointer items-center justify-center rounded-lg border px-3 text-center text-sm font-bold uppercase tracking-wide transition ${
-                withPlusOne === option.value
-                  ? "border-burgundy bg-burgundy text-white shadow-md"
-                  : "border-burgundy/25 bg-white text-burgundy hover:border-burgundy/60"
-              }`}
-            >
-              <input
-                className="sr-only"
-                type="radio"
-                name="with-plus-one"
-                value={option.value}
-                checked={withPlusOne === option.value}
-                onChange={() => setWithPlusOne(option.value)}
-              />
-              {option.label}
-            </label>
-          ))}
+        <legend className="text-sm font-semibold text-navy">Что предпочитаете по горячему?</legend>
+        <div className="mt-3 grid grid-cols-3 gap-3">
+          {hotMealOptions.map((option) => {
+            const checked = hotMeal.includes(option.value);
+            return (
+              <label
+                key={option.value}
+                className={`flex min-h-12 cursor-pointer items-center justify-center rounded-lg border px-3 text-center text-sm font-bold uppercase tracking-wide transition ${
+                  checked
+                    ? "border-burgundy bg-burgundy text-white shadow-md"
+                    : "border-burgundy/25 bg-white text-burgundy hover:border-burgundy/60"
+                }`}
+              >
+                <input
+                  className="sr-only"
+                  type="checkbox"
+                  name="hot-meal"
+                  value={option.value}
+                  checked={checked}
+                  onChange={() =>
+                    setHotMeal((prev) =>
+                      prev.includes(option.value)
+                        ? prev.filter((m) => m !== option.value)
+                        : [...prev, option.value],
+                    )
+                  }
+                />
+                {option.label}
+              </label>
+            );
+          })}
         </div>
+      </fieldset>
+
+      <fieldset className="mt-6">
+        <legend className="text-sm font-semibold text-navy">Придёте со второй половинкой?</legend>
+        <p className="mt-1 text-xs leading-relaxed text-navy/60">
+          Необязательно. Отметьте, только если приведёте с собой вторую половинку.
+        </p>
+
+        <label
+          className={`mt-3 flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-lg border px-4 text-sm font-bold uppercase tracking-wide transition ${
+            withPlusOne
+              ? "border-burgundy bg-burgundy text-white shadow-md"
+              : "border-burgundy/25 bg-white text-burgundy hover:border-burgundy/60"
+          }`}
+        >
+          <input
+            className="sr-only"
+            type="checkbox"
+            name="with-plus-one"
+            checked={withPlusOne}
+            onChange={(event) => {
+              const next = event.target.checked;
+              setWithPlusOne(next);
+              if (!next) {
+                setPlusOneName("");
+              }
+            }}
+          />
+          {withPlusOne ? "Приду со второй половинкой ✓" : "Приду со второй половинкой"}
+        </label>
+
+        <div className="mt-4 flex items-start gap-3 rounded-lg border border-burgundy/40 bg-burgundy/10 p-3 text-left">
+          <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-burgundy text-sm font-bold text-white">
+            !
+          </span>
+          <p className="text-sm font-semibold leading-relaxed text-burgundy">
+            Если ваша вторая половинка заполнит анкету самостоятельно, <span className="underline">не отмечайте</span> «Приду со второй половинкой».
+          </p>
+        </div>
+
+        {withPlusOne && (
+          <div className="mt-4">
+            <label className="block text-sm font-semibold text-navy" htmlFor="plus-one-name">
+              Укажите имя второй половинки
+            </label>
+            <input
+              id="plus-one-name"
+              value={plusOneName}
+              onChange={(event) => setPlusOneName(event.target.value)}
+              className="mt-2 w-full rounded-lg border border-burgundy/25 bg-white px-4 py-3 text-base text-navy outline-none transition focus:border-burgundy focus:ring-4 focus:ring-burgundy/10"
+              placeholder="Имя второй половинки"
+              autoComplete="name"
+            />
+          </div>
+        )}
       </fieldset>
 
       <button

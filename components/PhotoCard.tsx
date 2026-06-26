@@ -24,7 +24,7 @@ export function PhotoCard({
 }: PhotoCardProps) {
   const isSvg = src.endsWith(".svg");
   const frame = polaroid
-    ? "border-[10px] border-white bg-white pb-10 shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
+    ? "border-[10px] border-white bg-white shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
     : "border-4 border-white shadow-md";
 
   return (
@@ -43,7 +43,7 @@ export function PhotoCard({
           unoptimized={isSvg}
         />
       </div>
-      {caption && <figcaption className="pt-1 text-center font-script text-3xl leading-none text-burgundy">{caption}</figcaption>}
+      {caption && <figcaption className="font-script px-2 py-4 text-center text-[1.7rem] font-bold leading-tight text-burgundy">{caption}</figcaption>}
     </figure>
   );
 }

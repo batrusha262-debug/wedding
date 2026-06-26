@@ -19,6 +19,15 @@ body {
   letter-spacing: 0.02em;
 }
 
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.font-calligraphy {
+  font-family: var(--font-marck), var(--font-caveat), cursive;
+  letter-spacing: 0.01em;
+}
+
 /* Smooth transitions for interactive elements */
 button,
 a {

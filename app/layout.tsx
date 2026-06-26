@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Montserrat } from "next/font/google";
+import { Caveat, Montserrat, Playfair_Display, Marck_Script } from "next/font/google";
 import "./globals.css";
 
 const caveat = Caveat({
@@ -14,6 +14,19 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const marckScript = Marck_Script({
+  subsets: ["latin", "cyrillic"],
+  weight: "400",
+  variable: "--font-marck",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Свадебное приглашение",
   description: "Мы женимся!",
@@ -25,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${caveat.variable} ${montserrat.variable}`}>
+    <html lang="ru" className={`${caveat.variable} ${montserrat.variable} ${playfair.variable} ${marckScript.variable}`}>
       <body className="font-sans antialiased text-navy">{children}</body>
     </html>
   );
