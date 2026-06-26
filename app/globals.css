@@ -6,6 +6,7 @@
   --color-navy: #212b36;
   --color-rose: #d4a5a5;
   --color-soft-peach: #f5ddd0;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
